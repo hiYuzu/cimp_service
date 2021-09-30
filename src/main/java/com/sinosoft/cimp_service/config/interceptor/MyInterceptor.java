@@ -20,18 +20,23 @@ public class MyInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String dataUri = "/data/";
-        String requestHost = request.getRemoteHost();
         String requestUri = request.getRequestURI();
-        boolean result = requestHost.startsWith("192.168.31.") || "0:0:0:0:0:0:0:1".equals(requestHost);
         if (!requestUri.startsWith(dataUri)) {
             return true;
         }
+
+        String requestHost = request.getRemoteHost();
+
+        boolean result = requestHost.startsWith("192.168.31.") || "0:0:0:0:0:0:0:1".equals(requestHost);
         if (result) {
             LOG.info("收到来自 " + requestHost + " 的请求：" + requestUri + "，请求已允许。");
         } else {
             LOG.warn("收到来自 " + requestHost + " 的请求：" + requestUri + "，请求已拒绝。");
         }
         return result;
+
+//        LOG.info("收到来自 " + requestHost + " 的请求：" + requestUri + "，请求已允许。");
+//        return true;
     }
 
     @Override

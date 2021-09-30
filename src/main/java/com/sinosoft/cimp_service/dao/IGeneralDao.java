@@ -1,6 +1,7 @@
 package com.sinosoft.cimp_service.dao;
 
 import com.sinosoft.cimp_service.entity.ActiveUser;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -11,13 +12,6 @@ import java.util.List;
  * @date 2021/9/10 16:00
  */
 public interface IGeneralDao {
-    /**
-     * 活跃用户
-     *
-     * @return {@link List}<{@link ActiveUser}>
-     */
-    @Select("select * from active_user")
-    List<ActiveUser> activeUser();
 
     /**
      * 活跃用户
@@ -25,6 +19,5 @@ public interface IGeneralDao {
      * @param activeUser {@link ActiveUser}
      * @return {@link List}<{@link ActiveUser}>
      */
-    @Select("select * from active_user where area_code = #{areaCode} and time = #{time} and amount = #{amount}")
-    List<ActiveUser> activeUsers(ActiveUser activeUser);
+    List<ActiveUser> activeUsers(@Param("activeUser") ActiveUser activeUser);
 }

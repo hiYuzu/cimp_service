@@ -18,11 +18,7 @@ public class GeneralService {
     @Resource
     private IGeneralDao generalDao;
 
-    public List<ActiveUser> activeUser() {
-        return generalDao.activeUser();
-    }
-
-    public List<ActiveUser> activeUser(ActiveUser activeUser) {
+    public List<ActiveUser> activeUsers(ActiveUser activeUser) {
         return generalDao.activeUsers(activeUser);
     }
 }

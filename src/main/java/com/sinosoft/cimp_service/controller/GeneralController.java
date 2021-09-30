@@ -3,6 +3,7 @@ package com.sinosoft.cimp_service.controller;
 import com.sinosoft.cimp_service.entity.ActiveUser;
 import com.sinosoft.cimp_service.service.GeneralService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,9 +21,9 @@ public class GeneralController {
     @Resource
     private GeneralService generalService;
 
-    @GetMapping("/activeUser")
-    public List<ActiveUser> activeUser() {
-        return generalService.activeUser();
+    @PostMapping("/activeUser")
+    public List<ActiveUser> activeUsers(ActiveUser activeUser) {
+        return generalService.activeUsers(activeUser);
     }
 
 }
