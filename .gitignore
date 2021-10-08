@@ -1,8 +1,4 @@
-HELP.md
 target/
 .idea
-.mvn
 *.iml
-mvnw
-mvnw.cmd
 logs.log
