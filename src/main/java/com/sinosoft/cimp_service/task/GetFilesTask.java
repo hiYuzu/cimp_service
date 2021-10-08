@@ -36,6 +36,7 @@ public class GetFilesTask {
         if (!fileDir.exists() && !fileDir.isDirectory()) {
             if (!fileDir.mkdirs()) {
                 LOG.error("创建接收文件夹失败！");
+                return;
             }
         }
         File[] files = fileDir.listFiles();

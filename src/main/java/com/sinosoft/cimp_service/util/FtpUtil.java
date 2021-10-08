@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -24,13 +23,12 @@ public class FtpUtil {
     private FtpModel ftpModel;
 
     public void getFiles() {
-        Ftp ftp = new Ftp(ftpModel.getHost(), ftpModel.getPort(), ftpModel.getName(), ftpModel.getPwd());
-
-        if (ftpModel.isActive()) {
-            ftp.setMode(FtpMode.Active);
-        }
-
         try {
+            Ftp ftp = new Ftp(ftpModel.getHost(), ftpModel.getPort(), ftpModel.getName(), ftpModel.getPwd());
+
+            if (ftpModel.isActive()) {
+                ftp.setMode(FtpMode.Active);
+            }
             String ftpDir = ftpModel.getFtpDir();
             ftp.cd(ftpDir);
             List<String> files = ftp.ls(ftpDir);
@@ -44,9 +42,9 @@ public class FtpUtil {
                 LOG.warn("未找到路径(" + ftpDir + ")下的文件！");
             }
             ftp.close();
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            LOG.error(ioe.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOG.error(e.getMessage());
         }
     }
 }
