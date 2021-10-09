@@ -27,7 +27,7 @@ public class MyInterceptor implements HandlerInterceptor {
 
         String requestHost = request.getRemoteHost();
 
-        boolean result = requestHost.startsWith("192.168.31.") || "0:0:0:0:0:0:0:1".equals(requestHost);
+        boolean result = requestHost.startsWith("192.168.22.") || "0:0:0:0:0:0:0:1".equals(requestHost);
         if (result) {
             LOG.info("收到来自 " + requestHost + " 的请求：" + requestUri + "，请求已允许。");
         } else {
