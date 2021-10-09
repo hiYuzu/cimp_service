@@ -9,6 +9,6 @@ public class GlobalUtil {
     /**
      * 本地存储位置
      */
-    public static final String SAVE_DIRECTORY = "/opt/xlsj/files/";
-    public static final String PROCESSED_DIRECTORY = "/opt/xlsj/processed/";
+    public static final String SAVE_DIRECTORY = "/opt/xlsj/temp/";
+    public static final String PROCESSED_DIRECTORY = "/opt/xlsj/files-" + DateUtil.getDate() + "/";
 }
