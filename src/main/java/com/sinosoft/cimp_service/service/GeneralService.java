@@ -2,6 +2,7 @@ package com.sinosoft.cimp_service.service;
 
 import com.sinosoft.cimp_service.dao.IGeneralDao;
 import com.sinosoft.cimp_service.entity.ActiveUser;
+import com.sinosoft.cimp_service.pojo.ActiveUserPojo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -18,7 +19,7 @@ public class GeneralService {
     @Resource
     private IGeneralDao generalDao;
 
-    public List<ActiveUser> activeUsers(ActiveUser activeUser) {
+    public List<ActiveUser> activeUsers(ActiveUserPojo activeUser) {
         return generalDao.activeUsers(activeUser);
     }
 }

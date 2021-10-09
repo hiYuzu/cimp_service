@@ -6,15 +6,18 @@
         <result column="time" property="time" jdbcType="TIMESTAMP"/>
         <result column="amount" property="amount" jdbcType="INTEGER"/>
     </resultMap>
-    <select id="activeUsers" parameterType="com.sinosoft.cimp_service.entity.ActiveUser" resultMap="activeUserMap">
+    <select id="activeUsers" parameterType="com.sinosoft.cimp_service.pojo.ActiveUserPojo" resultMap="activeUserMap">
         SELECT area_code, time, amount FROM active_user WHERE 1=1
-        <if test="activeUser.time != null">
-            AND time = #{activeUser.time}
+        <if test="activeUser.startTime != null">
+            AND time &gt;= #{activeUser.startTime}
+        </if>
+        <if test= "activeUser.endTime != null">
+            AND time &lt;= #{activeUser.endTime}
         </if>
         <if test="activeUser.areaCode != null">
             AND area_code = #{activeUser.areaCode}
         </if>
-        <if test="activeUser.amount != 0">
+        <if test="activeUser.amount != null">
             AND amount = #{activeUser.amount}
         </if>
     </select>

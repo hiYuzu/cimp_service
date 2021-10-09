@@ -1,6 +1,7 @@
 package com.sinosoft.cimp_service.dao;
 
 import com.sinosoft.cimp_service.entity.ActiveUser;
+import com.sinosoft.cimp_service.pojo.ActiveUserPojo;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -16,8 +17,8 @@ public interface IGeneralDao {
     /**
      * 活跃用户
      *
-     * @param activeUser {@link ActiveUser}
+     * @param activeUser {@link ActiveUserPojo}
      * @return {@link List}<{@link ActiveUser}>
      */
-    List<ActiveUser> activeUsers(@Param("activeUser") ActiveUser activeUser);
+    List<ActiveUser> activeUsers(@Param("activeUser") ActiveUserPojo activeUser);
 }
