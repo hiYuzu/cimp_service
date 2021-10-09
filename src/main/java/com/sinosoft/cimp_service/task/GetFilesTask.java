@@ -1,5 +1,6 @@
 package com.sinosoft.cimp_service.task;
 
+import cn.hutool.core.io.FileUtil;
 import com.sinosoft.cimp_service.service.ParseCsvFileService;
 import com.sinosoft.cimp_service.util.FtpUtil;
 import com.sinosoft.cimp_service.util.GlobalUtil;
@@ -44,6 +45,7 @@ public class GetFilesTask {
             for (File file : files) {
                 try {
                     parseCsvFileService.parseCsvFile(file);
+                    FileUtil.copy(file, new File(GlobalUtil.PROCESSED_DIRECTORY), true);
                     if (file.delete()) {
                         LOG.info("解析完成，已删除本地文件：" + file.getName());
                     }
