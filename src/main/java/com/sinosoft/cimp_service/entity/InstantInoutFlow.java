@@ -1,6 +1,7 @@
 package com.sinosoft.cimp_service.entity;
 
 import cn.hutool.core.annotation.Alias;
+import com.sinosoft.cimp_service.util.DateUtil;
 
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
  */
 public class InstantInoutFlow {
     @Alias("时间")
-    private Date time;
+    private String time;
     @Alias("流入或流出")
     private String inout;
     @Alias("区域ID")
@@ -22,10 +23,10 @@ public class InstantInoutFlow {
     private int amount;
 
     public Date getTime() {
-        return time;
+        return DateUtil.parseDate(time);
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
