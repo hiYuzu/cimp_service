@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author hiYuzu
@@ -26,6 +28,8 @@ public class GetFilesTask {
     @Resource
     private FtpUtil ftpUtil;
 
+    private final List<File> files = new ArrayList<>();
+
     @Scheduled(cron = "0 */30 * * * ?")
     public void getFtpFiles() {
         ftpUtil.getFiles();
@@ -40,18 +44,32 @@ public class GetFilesTask {
                 return;
             }
         }
-        File[] files = fileDir.listFiles();
-        if (files != null && files.length > 0) {
+        recursionFiles(fileDir);
+        if (files.size() > 0) {
             for (File file : files) {
                 try {
                     parseCsvFileService.parseCsvFile(file);
-                    FileUtil.copy(file, new File(GlobalUtil.PROCESSED_DIRECTORY), true);
+                    FileUtil.copy(file, new File(GlobalUtil.PROCESSED_DIRECTORY + file.getName()), true);
                     if (file.delete()) {
                         LOG.info("解析完成，已删除本地文件：" + file.getName());
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                     LOG.error("文件[" + file.getName() + "]解析失败：" + e.getMessage());
+                }
+            }
+            files.clear();
+        }
+    }
+
+    private void recursionFiles(File fileDir) {
+        File[] temp = fileDir.listFiles();
+        if (temp != null && temp.length > 0) {
+            for (File f : temp) {
+                if (f.isDirectory()) {
+                    recursionFiles(f);
+                } else {
+                    files.add(f);
                 }
             }
         }
