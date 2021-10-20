@@ -58,7 +58,7 @@ public class ParseCsvFileService {
                 parseInstantPeopleFlowSex(fileAbsPath);
                 break;
             // 6.瞬时流入流出
-            case "inout":
+            case "InOut":
                 parseInstantInoutFlow(fileAbsPath);
                 break;
             // 7.区域出现量

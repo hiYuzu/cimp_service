@@ -31,7 +31,6 @@ public class FtpUtil {
             String ftpDir = ftpModel.getFtpDir();
             ftp.cd(ftpDir);
             ftp.recursiveDownloadFolder(ftpDir, FileUtil.file(GlobalUtil.SAVE_DIRECTORY));
-            LOG.info("FTP 文件已全量接收！");
             ftp.delDir(ftpDir);
             ftp.close();
         } catch (Exception e) {

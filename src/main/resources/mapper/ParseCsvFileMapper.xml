@@ -81,7 +81,7 @@
     <insert id="batchSaveInstantInoutFlow" parameterType="java.util.List">
             INSERT INTO
             instant_inout_flow
-            (time, area_code, amount, inout)
+            (time, area_code, amount, inout_type)
             VALUES
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
@@ -209,12 +209,16 @@
     <insert id="batchSaveAreaStayDuration" parameterType="java.util.List">
             INSERT INTO
             area_stay_duration
-            (time, area_code, amount)
+            (time, area_code, amount30, amount120, amount240, amount480, amount_over)
             VALUES
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
-            #{item.amount})
+            #{item.amount30},
+            #{item.amount120},
+            #{item.amount240},
+            #{item.amount480},
+            #{item.amountOver})
         </foreach>
     </insert>
 
@@ -274,12 +278,13 @@
     <insert id="batchSaveAreaStayDurationSex" parameterType="java.util.List">
             INSERT INTO
             area_stay_duration_sex
-            (time, area_code, amount)
+            (time, area_code, amount_male, amount_female)
             VALUES
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
-            #{item.amount})
+            #{item.amountMale},
+            #{item.amountFemale})
         </foreach>
     </insert>
 
