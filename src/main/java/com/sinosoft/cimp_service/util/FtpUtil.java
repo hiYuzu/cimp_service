@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @author hiYuzu
@@ -32,6 +31,7 @@ public class FtpUtil {
             String ftpDir = ftpModel.getFtpDir();
             ftp.cd(ftpDir);
             ftp.recursiveDownloadFolder(ftpDir, FileUtil.file(GlobalUtil.SAVE_DIRECTORY));
+            LOG.info("FTP 文件已全量接收！");
             ftp.delDir(ftpDir);
             ftp.close();
         } catch (Exception e) {

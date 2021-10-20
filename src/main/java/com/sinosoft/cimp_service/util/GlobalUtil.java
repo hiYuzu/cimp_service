@@ -10,5 +10,20 @@ public class GlobalUtil {
      * 本地存储位置
      */
     public static final String SAVE_DIRECTORY = "/opt/xlsj/temp/";
+    /**
+     * 已处理文件
+     */
     public static final String PROCESSED_DIRECTORY = "/opt/xlsj/files-" + DateUtil.getDate() + "/";
+    /**
+     * 阜外医院数据保存位置
+     */
+    public static final String FW_FTP_DIRECTORY = "/opt/xlsj/ftp/fw/";
+    /**
+     * 妇产医院数据保存位置
+     */
+    public static final String FC_FTP_DIRECTORY = "/opt/xlsj/ftp/fc/";
+    /**
+     * 儿童医院数据保存位置
+     */
+    public static final String ET_FTP_DIRECTORY = "/opt/xlsj/ftp/et/";
 }

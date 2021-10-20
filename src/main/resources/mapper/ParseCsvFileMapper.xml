@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sinosoft.cimp_service.dao.IParseCsvFileDao">
     <insert id="batchSaveInstantPeopleFlow" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_people_flow
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -14,11 +14,11 @@
     </insert>
 
     <insert id="batchSaveInstantPeopleFlowAttr" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_people_flow_attr
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -27,11 +27,11 @@
     </insert>
 
     <insert id="batchSaveInstantPeopleFlowHome" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_people_flow_home
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -40,12 +40,12 @@
     </insert>
 
     <insert id="batchSaveInstantPeopleFlowAge" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_people_flow_age
             (time, area_code, amount5, amount10, amount15, amount20, amount25, amount30, amount35, amount40, amount45,
             amount50, amount55, amount60, amount65, amount70, amount_over)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount5},
@@ -67,11 +67,11 @@
     </insert>
 
     <insert id="batchSaveInstantPeopleFlowSex" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_people_flow_sex
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -79,11 +79,11 @@
     </insert>
 
     <insert id="batchSaveInstantInoutFlow" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             instant_inout_flow
             (time, area_code, amount, inout)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -92,11 +92,11 @@
     </insert>
 
     <insert id="batchSaveAreaAppear" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_appear
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -104,11 +104,11 @@
     </insert>
 
     <insert id="batchSaveAreaAppearAttr" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_appear_attr
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -117,11 +117,11 @@
     </insert>
 
     <insert id="batchSaveAreaAppearHome" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_appear_home
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -130,11 +130,11 @@
     </insert>
 
     <insert id="batchSaveActiveUser" parameterType="java.util.List">
+        INSERT INTO
+        active_user
+        (time, area_code, amount)
+        VALUES
         <foreach collection="list" item="item" index="index" separator=",">
-            INSERT INTO
-            active_user
-            (time, area_code, amount)
-            VALUES
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -142,11 +142,11 @@
     </insert>
 
     <insert id="batchSaveActiveUserAttr" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             active_user_attr
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -155,11 +155,11 @@
     </insert>
 
     <insert id="batchSaveActiveUserHome" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             active_user_home
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -168,12 +168,12 @@
     </insert>
 
     <insert id="batchSaveActiveUserAge" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             active_user_age
             (time, area_code, amount5, amount10, amount15, amount20, amount25, amount30, amount35, amount40, amount45,
             amount50, amount55, amount60, amount65, amount70, amount_over)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount5},
@@ -195,11 +195,11 @@
     </insert>
 
     <insert id="batchSaveActiveUserSex" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             active_user_sex
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -207,11 +207,11 @@
     </insert>
 
     <insert id="batchSaveAreaStayDuration" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_stay_duration
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -219,11 +219,11 @@
     </insert>
 
     <insert id="batchSaveAreaStayDurationAttr" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_stay_duration_attr
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -232,11 +232,11 @@
     </insert>
 
     <insert id="batchSaveAreaStayDurationHome" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_stay_duration_home
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
@@ -245,12 +245,12 @@
     </insert>
 
     <insert id="batchSaveAreaStayDurationAge" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_stay_duration_age
             (time, area_code, amount5, amount10, amount15, amount20, amount25, amount30, amount35, amount40, amount45,
             amount50, amount55, amount60, amount65, amount70, amount_over)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount5},
@@ -272,11 +272,11 @@
     </insert>
 
     <insert id="batchSaveAreaStayDurationSex" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             area_stay_duration_sex
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -284,11 +284,11 @@
     </insert>
 
     <insert id="batchSaveDailyDay" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             daily_day
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -296,11 +296,11 @@
     </insert>
 
     <insert id="batchSaveDailyNight" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             daily_night
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -308,11 +308,11 @@
     </insert>
 
     <insert id="batchSaveDailyCommuteRadius" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             daily_commute_radius
             (time, work_area_code, live_area_code, distance)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.workAreaCode},
             #{item.liveAreaCode},
@@ -321,11 +321,11 @@
     </insert>
 
     <insert id="batchSaveDailyCommuteTime" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             daily_commute_time
             (time, work_area_code, live_area_code, duration)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.workAreaCode},
             #{item.liveAreaCode},
@@ -334,11 +334,11 @@
     </insert>
 
     <insert id="batchSaveTouristAppear" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             tourist_appear
             (time, area_code, amount)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount})
@@ -346,11 +346,11 @@
     </insert>
 
     <insert id="batchSaveTouristAppearAttr" parameterType="java.util.List">
-        <foreach collection="list" item="item" index="index" separator=",">
             INSERT INTO
             tourist_appear_attr
             (time, area_code, amount, city_code)
             VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
             #{item.amount},
