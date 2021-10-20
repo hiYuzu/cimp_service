@@ -13,13 +13,13 @@ import java.util.Date;
  * @date 2021/9/24 14:52
  */
 public class InstantPeopleFlowAttr {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("归属城市ID")
+    @Alias("attrid")
     private String cityCode;
-    @Alias("人数")
+    @Alias("sd_total")
     private int amount;
 
     public Date getTime() {

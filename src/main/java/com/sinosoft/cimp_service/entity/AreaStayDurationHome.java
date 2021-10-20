@@ -13,15 +13,15 @@ import java.util.Date;
  * @date 2021/9/24 15:08
  */
 public class AreaStayDurationHome {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("时间段")
+    @Alias("data_type")
     private String duration;
-    @Alias("户籍城市ID")
+    @Alias("attrid")
     private String cityCode;
-    @Alias("人数")
+    @Alias("sd_total")
     private int amount;
 
     public Date getTime() {

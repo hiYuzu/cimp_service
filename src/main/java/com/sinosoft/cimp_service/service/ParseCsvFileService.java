@@ -819,13 +819,19 @@ public class ParseCsvFileService {
         List<DailyCommuteRadius> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyCommuteRadius.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyCommuteRadius(list);
-            /// 暂时不确定日通勤半径是否需要分医院导出
-            /*
+
             List<DailyCommuteRadius> fwEntity = new ArrayList<>();
             List<DailyCommuteRadius> fcEntity = new ArrayList<>();
             List<DailyCommuteRadius> etEntity = new ArrayList<>();
             for (DailyCommuteRadius temp : list) {
-                String areaCode = temp.getAreaCode();
+                String areaCode;
+                if (temp.getWorkAreaCode().startsWith("300101")) {
+                    areaCode = temp.getWorkAreaCode();
+                } else if (temp.getLiveAreaCode().startsWith("300101")) {
+                    areaCode = temp.getLiveAreaCode();
+                } else {
+                    continue;
+                }
                 if (areaCode.equals(HospitalEnum.FW.getCode())) {
                     fwEntity.add(temp);
                 } else if (areaCode.equals(HospitalEnum.FC.getCode())) {
@@ -843,7 +849,7 @@ public class ParseCsvFileService {
             }
             if (fwEntity.size() > 0) {
                 exportCsvFileUtil.createCsvFile(fwEntity, DailyCommuteRadius.class, GlobalUtil.FW_FTP_DIRECTORY + completeFileName);
-            }*/
+            }
         }
     }
 
@@ -852,13 +858,19 @@ public class ParseCsvFileService {
         List<DailyCommuteTime> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyCommuteTime.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyCommuteTime(list);
-            /// 暂时不确定日通勤时间是否需要分医院导出
-            /*
+
             List<DailyCommuteTime> fwEntity = new ArrayList<>();
             List<DailyCommuteTime> fcEntity = new ArrayList<>();
             List<DailyCommuteTime> etEntity = new ArrayList<>();
             for (DailyCommuteTime temp : list) {
-                String areaCode = temp.getAreaCode();
+                String areaCode;
+                if (temp.getWorkAreaCode().startsWith("300101")) {
+                    areaCode = temp.getWorkAreaCode();
+                } else if (temp.getLiveAreaCode().startsWith("300101")) {
+                    areaCode = temp.getLiveAreaCode();
+                } else {
+                    continue;
+                }
                 if (areaCode.equals(HospitalEnum.FW.getCode())) {
                     fwEntity.add(temp);
                 } else if (areaCode.equals(HospitalEnum.FC.getCode())) {
@@ -876,7 +888,7 @@ public class ParseCsvFileService {
             }
             if (fwEntity.size() > 0) {
                 exportCsvFileUtil.createCsvFile(fwEntity, DailyCommuteTime.class, GlobalUtil.FW_FTP_DIRECTORY + completeFileName);
-            }*/
+            }
         }
     }
 

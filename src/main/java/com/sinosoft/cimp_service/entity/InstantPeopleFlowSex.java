@@ -13,13 +13,13 @@ import java.util.Date;
  * @date 2021/9/24 14:55
  */
 public class InstantPeopleFlowSex {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("男性人数")
+    @Alias("sd_total1")
     private int amountMale;
-    @Alias("女性人数")
+    @Alias("sd_total2")
     private int amountFemale;
 
     public Date getTime() {

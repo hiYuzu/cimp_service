@@ -13,13 +13,13 @@ import java.util.Date;
  * @date 2021/9/24 15:00
  */
 public class AreaAppearHome {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("户籍城市ID")
+    @Alias("attrid")
     private String cityCode;
-    @Alias("人数")
+    @Alias("sd_total")
     private int amount;
 
     public Date getTime() {

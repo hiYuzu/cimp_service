@@ -13,13 +13,13 @@ import java.util.Date;
  * @date 2021/9/24 15:15
  */
 public class DailyCommuteRadius {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("工作区域")
+    @Alias("workareaid")
     private String workAreaCode;
-    @Alias("居住区域")
+    @Alias("liveareaid")
     private String liveAreaCode;
-    @Alias("距离")
+    @Alias("comdis")
     private double distance;
 
     public Date getTime() {

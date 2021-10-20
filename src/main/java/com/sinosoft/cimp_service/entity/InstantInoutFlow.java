@@ -13,13 +13,13 @@ import java.util.Date;
  * @date 2021/9/24 14:56
  */
 public class InstantInoutFlow {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("流入或流出")
+    @Alias("data_type")
     private String inout;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("人数")
+    @Alias("sd_total")
     private int amount;
 
     public Date getTime() {

@@ -14,11 +14,11 @@ import java.util.Date;
  */
 
 public class ActiveUser {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域ID")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("人数")
+    @Alias("sd_total")
     private int amount;
 
     public Date getTime() {

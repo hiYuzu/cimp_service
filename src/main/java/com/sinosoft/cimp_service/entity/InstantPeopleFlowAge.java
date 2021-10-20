@@ -13,39 +13,39 @@ import java.util.Date;
  * @date 2021/9/24 14:55
  */
 public class InstantPeopleFlowAge {
-    @Alias("时间")
+    @Alias("sd_date")
     private String time;
-    @Alias("区域")
+    @Alias("areaid")
     private String areaCode;
-    @Alias("1-5岁人数")
+    @Alias("sd_total1")
     private int amount5;
-    @Alias("6-10岁人数")
+    @Alias("sd_total2")
     private int amount10;
-    @Alias("11-15岁人数")
+    @Alias("sd_total3")
     private int amount15;
-    @Alias("16-20岁人数")
+    @Alias("sd_total4")
     private int amount20;
-    @Alias("21-25岁人数")
+    @Alias("sd_total5")
     private int amount25;
-    @Alias("26-30岁人数")
+    @Alias("sd_total6")
     private int amount30;
-    @Alias("31-35岁人数")
+    @Alias("sd_total7")
     private int amount35;
-    @Alias("36-40岁人数")
+    @Alias("sd_total8")
     private int amount40;
-    @Alias("41-45岁人数")
+    @Alias("sd_total9")
     private int amount45;
-    @Alias("46-50岁人数")
+    @Alias("sd_total10")
     private int amount50;
-    @Alias("51-55岁人数")
+    @Alias("sd_total11")
     private int amount55;
-    @Alias("56-60岁人数")
+    @Alias("sd_total12")
     private int amount60;
-    @Alias("61-65岁人数")
+    @Alias("sd_total13")
     private int amount65;
-    @Alias("66-70岁人数")
+    @Alias("sd_total14")
     private int amount70;
-    @Alias("70+岁")
+    @Alias("sd_total15")
     private int amountOver;
 
     public Date getTime() {
