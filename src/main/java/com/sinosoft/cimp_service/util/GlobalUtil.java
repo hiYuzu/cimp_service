@@ -17,13 +17,13 @@ public class GlobalUtil {
     /**
      * 阜外医院数据保存位置
      */
-    public static final String FW_FTP_DIRECTORY = "/opt/xlsj/ftp/fw/";
+    public static final String FW_FTP_DIRECTORY = "/opt/ftp/bjfw/";
     /**
      * 妇产医院数据保存位置
      */
-    public static final String FC_FTP_DIRECTORY = "/opt/xlsj/ftp/fc/";
+    public static final String FC_FTP_DIRECTORY = "/opt/ftp/bjfc/";
     /**
      * 儿童医院数据保存位置
      */
-    public static final String ET_FTP_DIRECTORY = "/opt/xlsj/ftp/et/";
+    public static final String ET_FTP_DIRECTORY = "/opt/ftp/bjet/";
 }
