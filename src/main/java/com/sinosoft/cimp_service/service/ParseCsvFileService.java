@@ -50,11 +50,11 @@ public class ParseCsvFileService {
                 parseInstantPeopleFlowHome(fileAbsPath);
                 break;
             // 4.瞬时BI人流量年龄段
-            case "RTBIAgeAttr":
+            case "RTBIAge":
                 parseInstantPeopleFlowAge(fileAbsPath);
                 break;
             // 5.瞬时BI人流量性别
-            case "RTBISexAttr":
+            case "RTBISex":
                 parseInstantPeopleFlowSex(fileAbsPath);
                 break;
             // 6.瞬时流入流出
