@@ -69,12 +69,13 @@
     <insert id="batchSaveInstantPeopleFlowSex" parameterType="java.util.List">
             INSERT INTO
             instant_people_flow_sex
-            (time, area_code, amount)
+            (time, area_code, amount_male, amount_female)
             VALUES
         <foreach collection="list" item="item" index="index" separator=",">
             (#{item.time},
             #{item.areaCode},
-            #{item.amount})
+            #{item.amountMale},
+            #{item.amountFemale})
         </foreach>
     </insert>
 
