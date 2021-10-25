@@ -11,7 +11,7 @@
  Target Server Version : 80013
  File Encoding         : 65001
 
- Date: 29/09/2021 16:26:33
+ Date: 20/10/2021 17:26:20
 */
 
 SET NAMES utf8mb4;
@@ -123,7 +123,11 @@ DROP TABLE IF EXISTS `area_stay_duration`;
 CREATE TABLE `area_stay_duration`  (
   `area_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '区域ID',
   `time` datetime(0) NOT NULL COMMENT '时间',
-  `amount` int(11) NULL DEFAULT NULL COMMENT '人数'
+  `amount30` int(11) NULL DEFAULT NULL COMMENT '0-30分钟',
+  `amount120` int(11) NULL DEFAULT NULL COMMENT '31-120分钟',
+  `amount240` int(11) NULL DEFAULT NULL COMMENT '121-240分钟',
+  `amount480` int(11) NULL DEFAULT NULL COMMENT '241-480分钟',
+  `amount_over` int(11) NULL DEFAULT NULL COMMENT '480分钟以上'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -233,7 +237,7 @@ CREATE TABLE `dic_all_area`  (
   `attr_id` int(11) NOT NULL,
   `attr_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`attr_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '全国城市码表（实际不止全国' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dic_all_area
@@ -865,7 +869,7 @@ CREATE TABLE `dic_bj_area`  (
   `p_area_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '上级区域名称',
   `area_level` int(2) NULL DEFAULT NULL COMMENT 'LEVEL',
   PRIMARY KEY (`area_code`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '区域码表（北京' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of dic_bj_area
@@ -1222,6 +1226,27 @@ INSERT INTO `dic_bj_area` VALUES ('110119202', '香营乡', '110119', '延庆区
 INSERT INTO `dic_bj_area` VALUES ('110119203', '珍珠泉乡', '110119', '延庆区', 4);
 
 -- ----------------------------
+-- Table structure for dic_hospital
+-- ----------------------------
+DROP TABLE IF EXISTS `dic_hospital`;
+CREATE TABLE `dic_hospital`  (
+  `hospital_id` int(11) NOT NULL COMMENT '序号',
+  `hospital_code` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '编码',
+  `hospital_type` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '类别',
+  `hospital_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '名称',
+  `mobile` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '移动',
+  `unicom` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '联通',
+  PRIMARY KEY (`hospital_id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of dic_hospital
+-- ----------------------------
+INSERT INTO `dic_hospital` VALUES (1, '300101467', '重点区域', '阜外医院', '861170377', '700501028');
+INSERT INTO `dic_hospital` VALUES (2, '300101468', '重点区域', '北京儿童医院', '861170378', '700501029');
+INSERT INTO `dic_hospital` VALUES (3, '300101469', '重点区域', '北京妇产科医院', '861170379', '700501030');
+
+-- ----------------------------
 -- Table structure for instant_inout_flow
 -- ----------------------------
 DROP TABLE IF EXISTS `instant_inout_flow`;
@@ -1229,7 +1254,7 @@ CREATE TABLE `instant_inout_flow`  (
   `area_code` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '区域ID',
   `time` datetime(0) NOT NULL COMMENT '时间',
   `amount` int(11) NULL DEFAULT NULL COMMENT '人数',
-  `inout` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '流入流出'
+  `inout_type` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '流入流出'
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
