@@ -3,6 +3,7 @@ package com.sinosoft.cimp_service.service;
 import cn.hutool.core.io.resource.ResourceUtil;
 import cn.hutool.core.text.csv.CsvReader;
 import cn.hutool.core.text.csv.CsvUtil;
+import cn.hutool.core.util.CharsetUtil;
 import com.sinosoft.cimp_service.dao.IParseCsvFileDao;
 import com.sinosoft.cimp_service.entity.*;
 import com.sinosoft.cimp_service.util.ExportCsvFileUtil;
@@ -13,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.io.File;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,7 +144,7 @@ public class ParseCsvFileService {
 
     private void parseInstantPeopleFlow(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantPeopleFlow> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantPeopleFlow.class);
+        List<InstantPeopleFlow> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantPeopleFlow.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantPeopleFlow(list);
 
@@ -176,7 +176,7 @@ public class ParseCsvFileService {
 
     private void parseInstantPeopleFlowAttr(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantPeopleFlowAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantPeopleFlowAttr.class);
+        List<InstantPeopleFlowAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantPeopleFlowAttr.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantPeopleFlowAttr(list);
 
@@ -208,7 +208,7 @@ public class ParseCsvFileService {
 
     private void parseInstantPeopleFlowHome(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantPeopleFlowHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantPeopleFlowHome.class);
+        List<InstantPeopleFlowHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantPeopleFlowHome.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantPeopleFlowHome(list);
 
@@ -240,7 +240,7 @@ public class ParseCsvFileService {
 
     private void parseInstantPeopleFlowAge(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantPeopleFlowAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantPeopleFlowAge.class);
+        List<InstantPeopleFlowAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantPeopleFlowAge.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantPeopleFlowAge(list);
 
@@ -272,7 +272,7 @@ public class ParseCsvFileService {
 
     private void parseInstantPeopleFlowSex(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantPeopleFlowSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantPeopleFlowSex.class);
+        List<InstantPeopleFlowSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantPeopleFlowSex.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantPeopleFlowSex(list);
 
@@ -304,7 +304,7 @@ public class ParseCsvFileService {
 
     private void parseInstantInoutFlow(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<InstantInoutFlow> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), InstantInoutFlow.class);
+        List<InstantInoutFlow> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), InstantInoutFlow.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveInstantInoutFlow(list);
 
@@ -336,7 +336,7 @@ public class ParseCsvFileService {
 
     private void parseAreaAppear(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaAppear> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaAppear.class);
+        List<AreaAppear> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaAppear.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaAppear(list);
 
@@ -368,7 +368,7 @@ public class ParseCsvFileService {
 
     private void parseAreaAppearAttr(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaAppearAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaAppearAttr.class);
+        List<AreaAppearAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaAppearAttr.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaAppearAttr(list);
 
@@ -400,7 +400,7 @@ public class ParseCsvFileService {
 
     private void parseAreaAppearHome(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaAppearHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaAppearHome.class);
+        List<AreaAppearHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaAppearHome.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaAppearHome(list);
 
@@ -432,7 +432,7 @@ public class ParseCsvFileService {
 
     private void parseActiveUser(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<ActiveUser> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), ActiveUser.class);
+        List<ActiveUser> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), ActiveUser.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveActiveUser(list);
 
@@ -464,7 +464,7 @@ public class ParseCsvFileService {
 
     private void parseActiveUserAttr(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<ActiveUserAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), ActiveUserAttr.class);
+        List<ActiveUserAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), ActiveUserAttr.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveActiveUserAttr(list);
 
@@ -496,7 +496,7 @@ public class ParseCsvFileService {
 
     private void parseActiveUserHome(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<ActiveUserHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), ActiveUserHome.class);
+        List<ActiveUserHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), ActiveUserHome.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveActiveUserHome(list);
 
@@ -528,7 +528,7 @@ public class ParseCsvFileService {
 
     private void parseActiveUserAge(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<ActiveUserAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), ActiveUserAge.class);
+        List<ActiveUserAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), ActiveUserAge.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveActiveUserAge(list);
 
@@ -560,7 +560,7 @@ public class ParseCsvFileService {
 
     private void parseActiveUserSex(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<ActiveUserSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), ActiveUserSex.class);
+        List<ActiveUserSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), ActiveUserSex.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveActiveUserSex(list);
 
@@ -592,7 +592,7 @@ public class ParseCsvFileService {
 
     private void parseAreaStayDuration(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaStayDuration> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaStayDuration.class);
+        List<AreaStayDuration> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaStayDuration.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaStayDuration(list);
 
@@ -624,7 +624,7 @@ public class ParseCsvFileService {
 
     private void parseAreaStayDurationAttr(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaStayDurationAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaStayDurationAttr.class);
+        List<AreaStayDurationAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaStayDurationAttr.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaStayDurationAttr(list);
 
@@ -656,7 +656,7 @@ public class ParseCsvFileService {
 
     private void parseAreaStayDurationHome(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaStayDurationHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaStayDurationHome.class);
+        List<AreaStayDurationHome> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaStayDurationHome.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaStayDurationHome(list);
 
@@ -688,7 +688,7 @@ public class ParseCsvFileService {
 
     private void parseAreaStayDurationAge(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaStayDurationAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaStayDurationAge.class);
+        List<AreaStayDurationAge> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaStayDurationAge.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaStayDurationAge(list);
 
@@ -720,7 +720,7 @@ public class ParseCsvFileService {
 
     private void parseAreaStayDurationSex(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<AreaStayDurationSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), AreaStayDurationSex.class);
+        List<AreaStayDurationSex> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), AreaStayDurationSex.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveAreaStayDurationSex(list);
 
@@ -752,7 +752,7 @@ public class ParseCsvFileService {
 
     private void parseDailyDay(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<DailyDay> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyDay.class);
+        List<DailyDay> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), DailyDay.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyDay(list);
 
@@ -784,7 +784,7 @@ public class ParseCsvFileService {
 
     private void parseDailyNight(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<DailyNight> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyNight.class);
+        List<DailyNight> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), DailyNight.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyNight(list);
 
@@ -816,7 +816,7 @@ public class ParseCsvFileService {
 
     private void parseDailyCommuteRadius(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<DailyCommuteRadius> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyCommuteRadius.class);
+        List<DailyCommuteRadius> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), DailyCommuteRadius.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyCommuteRadius(list);
 
@@ -855,7 +855,7 @@ public class ParseCsvFileService {
 
     private void parseDailyCommuteTime(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<DailyCommuteTime> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), DailyCommuteTime.class);
+        List<DailyCommuteTime> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), DailyCommuteTime.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveDailyCommuteTime(list);
 
@@ -894,7 +894,7 @@ public class ParseCsvFileService {
 
     private void parseTouristAppear(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<TouristAppear> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), TouristAppear.class);
+        List<TouristAppear> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), TouristAppear.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveTouristAppear(list);
 
@@ -926,7 +926,7 @@ public class ParseCsvFileService {
 
     private void parseTouristAppearAttr(String fileAbsPath) {
         CsvReader reader = CsvUtil.getReader();
-        List<TouristAppearAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, Charset.forName("GBK")), TouristAppearAttr.class);
+        List<TouristAppearAttr> list = reader.read(ResourceUtil.getReader(fileAbsPath, CharsetUtil.CHARSET_GBK), TouristAppearAttr.class);
         if (list.size() > 0) {
             parseCsvFileDao.batchSaveTouristAppearAttr(list);
 
